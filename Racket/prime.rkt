@@ -8,5 +8,5 @@
       #f
       (helper 2)))
 
-(prime? 47)
+(prime? 19)
   
