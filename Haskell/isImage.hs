@@ -9,5 +9,5 @@ isImage xs ys = helper xs ys 0
   where
     helper xs ys count
       | null xs || null ys = False
-      | head xs == head ys * count = True
+      | head xs >= head ys * count = True
       | otherwise = helper (tail xs) (tail ys) (count + 1)
