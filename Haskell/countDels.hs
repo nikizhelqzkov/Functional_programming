@@ -4,7 +4,7 @@ main = do
   print (sumDel 645)
 
 sumDel :: Int -> Int
-sumDel n = helper 0 (n `div` 2) + 1
+sumDel n = helper 1 (n `div` 2)
   where
     helper count del
       | del < 1 = count
