@@ -3,11 +3,9 @@ import Data.Tuple
 main :: IO ()
 main = do
  print (getAverageBalance (accounts1,people1) (\(_,_,city) -> city == "Burgas"))
- print (getAverageBalance (accounts1,people1) (\(_,(n:_),_) -> n == 'P'))
+ print (getAverageBalance (accounts1,people1) (\(_,n:_,_) -> n == 'P'))
  print (averageBalanceOfCities (accounts1,people1) ["Sofia","Burgas","Stara Zagora"] )
 
-
- --Account = ID na smetka, Id na chovek, balance po smetka
 type Account = (Int, Int, Double)
 
 fst3 :: Account -> Int
@@ -19,7 +17,6 @@ snd3 (_, y, _) = y
 thrd3 :: Account -> Double
 thrd3 (_, _, z) = z
 
---person = id na person,name,location
 type Person = (Int, String, String)
 
 fst3P :: Person -> Int
@@ -32,7 +29,7 @@ thrd3P :: Person -> String
 thrd3P (_, _, z) = z
 
 getAverageBalance :: ([Account], [Person]) -> (Person -> Bool) -> Double
-getAverageBalance (acc, p) f = helper3 (helper2 (helper people1 f) acc acc [])
+getAverageBalance (acc, p) f = helper3 (helper2 (helper p f) acc acc [])
     where 
         helper people f = [d|d<-people,f d]
         helper2 [] acc save res = res
