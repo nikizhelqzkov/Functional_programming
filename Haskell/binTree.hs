@@ -2,6 +2,7 @@ main :: IO ()
 main = do
   print (countInteresting t1)
   print (countInteresting t2)
+  print (countInteresting t)
 
 data BTree = Empty | Node Int BTree BTree
 
@@ -10,9 +11,7 @@ countInteresting Empty = 0
 countInteresting (Node 1 Empty Empty) = 1
 countInteresting (Node 2 treeL Empty) = 1 + countInteresting treeL
 countInteresting (Node 2 Empty treeR) = 1 + countInteresting treeR
-countInteresting (Node 4 (Node valL treeLL treeLR) (Node valR treeRL treeRR)) = 1 + 
-                                                                 countInteresting (Node valL treeLL treeLR) + 
-                                                                 countInteresting (Node valR treeRL treeRR)
+countInteresting (Node 4 treeL treeR) = 1 + countInteresting treeL + countInteresting treeR
 countInteresting (Node _ treeL treeR) = countInteresting treeL + countInteresting treeR
 
 
