@@ -1,6 +1,6 @@
 main :: IO ()
 main = do
-  print ()
+  print (getClosestPoint [Point2D 1.0 1.0,Point2D 2.0 2.0](Point2D 0 0))
 
 data Point = Point2D Double Double | Point3D Double Double Double
   deriving (Eq, Show)

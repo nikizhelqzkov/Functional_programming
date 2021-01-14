@@ -47,8 +47,14 @@ inOrder Empty = []
 inOrder (Node root l r) = inOrder l ++ [root] ++ inOrder r
 
 average :: BTree -> Double
-average xs = fromIntegral (sumTree xs) / fromIntegral (size xs)
+average t = fromIntegral (sumTree t) / fromIntegral (size t)
 
 mirrorTree :: BTree -> BTree
 mirrorTree Empty = Empty
 mirrorTree (Node root l r) = Node root (mirrorTree r) (mirrorTree l)
+
+
+inLevel::Int->BTree->[Int]
+inLevel _ Empty  = []
+inLevel 0 (Node v _ _) = [v]
+inLevel k (Node v lt rt) = inLevel(k-1) lt ++ inLevel(k-1) rt
