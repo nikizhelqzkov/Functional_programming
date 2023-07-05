@@ -1,7 +1,7 @@
 main :: IO ()
 main = do
-  print (isPrime 1)
-  print (isPrime 13)
+  print (isPrime (11*31))
+  
 
 isPrime :: Int -> Bool
 isPrime 1 = False

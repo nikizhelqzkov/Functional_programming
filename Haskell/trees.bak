@@ -1,0 +1,17 @@
+#lang racket
+(define tree '((a b c)
+               (b d e)
+               (c f g h)
+               (g i j)))
+
+(define (succs? node)
+  (let ([lst (assq node tree)])
+    (if lst (cdr lst) '()) 
+    ))
+
+
+(define (leaf? node)
+  (null?(succs? node))
+  )
+
+

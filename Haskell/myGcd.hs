@@ -5,5 +5,5 @@ main = do
 myGcd :: Int -> Int -> Int
 myGcd a b
   | a == b = a
-  | a < b = gcd a (b - a)
-  | otherwise = gcd (a - b) b
+  | a < b = myGcd a (b - a)
+  | otherwise = myGcd (a - b) b
